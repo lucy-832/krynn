@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxe Nails Studio — Beautiful Nails, Perfected for You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blush: #d9abab;
+  --rose: #e8b4b8;
+  --deep-rose: #c4717a;
+  --nude: #f0d9cc;
+  --cream: #faf6f3;
+  --gold: #c9a96e;
+  --gold-light: #e8d5a3;
+  --white: #ffffff;
+  --charcoal: #3a2e2e;
+  --muted: #3c3737;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Jost', sans-serif;
+  --shadow: 0 4px 30px rgba(58,46,46,0.08);
+  --shadow-lg: 0 12px 60px rgba(58,46,46,0.15);
+  --radius: 16px;
+  --transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--charcoal);
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--blush); }
+::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 3px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 3rem;
+  background: rgba(253,248,244,0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(201,169,110,0.15);
+  transition: var(--transition);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 3rem; font-weight: 600;
+  color: var(--charcoal); letter-spacing: 1px;
+}
+.nav-logo span { color: var(--gold); }
+.nav-links { display:flex; gap: 2rem; align-items: center; }
+.nav-links a {
+  font-size: 1rem; letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; color: var(--muted);
+  transition: var(--transition); font-weight: 500;
+}
+.nav-links a:hover { color: var(--deep-rose); }
+.nav-actions { display:flex; gap: 1rem; align-items:center; }
+.btn-nav {
+  padding: 0.55rem 1.4rem;
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--gold);
+  font-family: var(--font-body); font-size: 1rem; letter-spacing: 1.5px;
+  text-transform: uppercase; cursor: pointer; border-radius: 40px;
+  transition: var(--transition);
+}
+.btn-nav:hover { background: var(--gold); color: var(--white); }
+.cart-btn {
+  position: relative; background: none; border: none; cursor: pointer;
+  font-size: 1.3rem; color: var(--charcoal); transition: var(--transition);
+}
+.cart-btn:hover { color: var(--deep-rose); transform: scale(1.1); }
+.cart-count {
+  position: absolute; top: -8px; right: -8px;
+  background: var(--deep-rose); color: white;
+  border-radius: 50%; width: 18px; height: 18px;
+  font-size: 0.65rem; display: flex; align-items: center; justify-content: center;
+  font-weight: 600; display: none;
+}
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background:none; border:none; }
+.hamburger span { width: 24px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: var(--transition); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; gap: 0;
+  padding-top: 80px;
+}
+.hero-content {
+  padding: 4rem 3rem 4rem 5rem;
+  animation: fadeUp 1s ease both;
+}
+.hero-badge {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  background: linear-gradient(135deg, var(--gold-light), var(--nude));
+  border-radius: 40px; font-size: 0.7rem; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  line-height: 1.1; font-weight: 300;
+  color: var(--charcoal); margin-bottom: 1rem;
+}
+.hero-title em { color: var(--deep-rose); font-style: italic; }
+.hero-tagline {
+  font-size: 1.25rem; color: var(--muted); margin-bottom: 2.5rem;
+  font-weight: 300; line-height: 1.8; max-width: 400px;
+}
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  padding: 0.9rem 2.2rem;
+  background: linear-gradient(135deg, var(--deep-rose), #a85860);
+  color: white; border: none; border-radius: 50px;
+  font-family: var(--font-body); font-size: 0.8rem;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: var(--transition);
+  box-shadow: 0 6px 25px rgba(196,113,122,0.4);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(196,113,122,0.5); }
+.btn-outline {
+  padding: 0.9rem 2.2rem;
+  background: transparent;
+  color: var(--charcoal); border: 1.5px solid var(--rose);
+  border-radius: 50px; font-family: var(--font-body);
+  font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: var(--transition);
+}
+.btn-outline:hover { background: var(--rose); color: white; border-color: var(--rose); }
+.hero-stats {
+  display: flex; gap: 2.5rem; margin-top: 3rem;
+  padding-top: 2rem; border-top: 1px solid rgba(201,169,110,0.2);
+}
+.stat-item { text-align: center; }
+.stat-num {
+  font-family: var(--font-display); font-size: 2.2rem;
+  font-weight: 600; color: var(--gold); display: block;
+}
+.stat-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; }
+.hero-visual {
+  height: 100vh; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--blush), var(--nude));
+}
+.hero-image-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr; height: 100%; gap: 8px; padding: 8px;
+}
+.hero-img-card {
+  border-radius: 12px; overflow: hidden; position: relative;
+}
+.hero-img-card:first-child { grid-row: span 2; }
+.nail-visual {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 5rem;
+  background: linear-gradient(135deg, var(--blush) 0%, var(--rose) 50%, var(--nude) 100%);
+  position: relative; overflow: hidden;
+}
+.nail-visual::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.4), transparent 60%);
+}
+.nail-visual-1 { background: linear-gradient(135deg, #f2cdd4, #e8a0ab); }
+.nail-visual-2 { background: linear-gradient(135deg, #f0d9cc, #e8c4a0); }
+.nail-visual-3 { background: linear-gradient(135deg, #e8d5a3, #d4b87a); }
+.floating-tag {
+  position: absolute; bottom: 1.5rem; left: 1.5rem;
+  background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
+  padding: 0.6rem 1rem; border-radius: 8px;
+  font-size: 0.75rem; font-weight: 500; color: var(--charcoal);
+  box-shadow: var(--shadow);
+}
+.floating-tag span { color: var(--gold); font-weight: 600; }
+
+/* ── SECTIONS SHARED ── */
+section { padding: 5rem 5% }
+.section-header { text-align: center; margin-bottom: 3.5rem; }
+.section-badge {
+  display: inline-block; font-size: 0.7rem; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 0.8rem; font-weight: 500;
+}
+.section-title {
+  font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300; line-height: 1.2;
+}
+.section-title em { color: var(--deep-rose); font-style: italic; }
+.section-subtitle { color: var(--muted); font-size: 0.9rem; margin-top: 0.8rem; font-weight: 300; }
+.gold-divider {
+  display: flex; align-items: center; gap: 1rem;
+  justify-content: center; margin: 1.5rem 0;
+}
+.gold-divider::before, .gold-divider::after {
+  content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold-light);
+}
+.gold-divider span { color: var(--gold); font-size: 0.8rem; }
+
+/* ── GALLERY ── */
+#gallery { background: var(--white); }
+
+/* ── Main category buttons (top tier) ── */
+.gallery-main-cats {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem;
+}
+.main-cat-btn {
+  padding: 0.65rem 1.8rem; border-radius: 40px;
+  border: 1.5px solid var(--gold);
+  background: transparent;
+  font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 1.5px;
+  text-transform: uppercase; cursor: pointer; color: var(--gold);
+  transition: var(--transition); font-weight: 500;
+}
+.main-cat-btn.active, .main-cat-btn:hover {
+  background: linear-gradient(135deg, var(--gold), #b8924f);
+  color: white; border-color: transparent;
+  box-shadow: 0 4px 18px rgba(201,169,110,0.4);
+}
+
+/* ── Sub-category row ── */
+.gallery-subcats {
+  display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 2rem;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease, margin 0.3s ease;
+  opacity: 0;
+}
+.gallery-subcats.visible {
+  max-height: 200px; opacity: 1; margin-bottom: 2rem;
+}
+
+/* Legacy filter buttons (kept for compatibility) */
+.gallery-filters {
+  display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin-bottom: 2.5rem;
+}
+.filter-btn {
+  padding: 0.5rem 1.4rem; border-radius: 40px;
+  border: 1px solid var(--rose); background: transparent;
+  font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 1px;
+  text-transform: uppercase; cursor: pointer; color: var(--muted);
+  transition: var(--transition);
+}
+.filter-btn.active, .filter-btn:hover {
+  background: var(--deep-rose); color: white; border-color: var(--deep-rose);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── Grid fade transition ── */
+.gallery-grid.fading { opacity: 0; transform: translateY(8px); transition: opacity 0.2s ease, transform 0.2s ease; }
+.gallery-grid { transition: opacity 0.35s ease, transform 0.35s ease; }
+
+/* ── Video placeholder cards ── */
+.video-card {
+  border-radius: var(--radius); overflow: hidden;
+  background: var(--cream); box-shadow: var(--shadow);
+  border: 1px solid rgba(232,180,184,0.2);
+  transition: var(--transition);
+}
+.video-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.video-placeholder {
+  width: 100%; aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--blush), var(--nude));
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 0.8rem;
+  position: relative; overflow: hidden; cursor: pointer;
+}
+.video-placeholder::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 40% 40%, rgba(255,255,255,0.3), transparent 65%);
+}
+.video-play-btn {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(255,255,255,0.9); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; box-shadow: 0 4px 20px rgba(58,46,46,0.2);
+  transition: var(--transition); position: relative; z-index: 1;
+}
+.video-placeholder:hover .video-play-btn { transform: scale(1.1); background: white; }
+.video-placeholder video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.video-overlay-label {
+  position: relative; z-index: 1; font-size: 0.78rem; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--charcoal); font-weight: 500; opacity: 0.75;
+}
+.video-card-body { padding: 1.2rem; }
+.video-card-title { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 0.3rem; }
+.video-card-desc { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+.video-replace-note {
+  font-size: 0.68rem; color: var(--gold); margin-top: 0.5rem;
+  letter-spacing: 0.8px; font-style: italic;
+}
+
+/* ── Wedding combo placeholder ── */
+.wedding-card {
+  border-radius: var(--radius); overflow: hidden;
+  background: linear-gradient(135deg, #fff9f9, #fff3f0);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(201,169,110,0.25);
+  transition: var(--transition);
+}
+.wedding-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.wedding-img-area {
+  height: 240px; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #fce8e8, #fdebd9);
+  display: flex; align-items: center; justify-content: center;
+}
+.wedding-img-area img { width:100%; height:100%; object-fit:cover; }
+.wedding-badge {
+  position: absolute; top: 1rem; left: 1rem;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: white; padding: 0.3rem 0.8rem; border-radius: 20px;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 1px;
+}
+.wedding-card-body { padding: 1.2rem; }
+.wedding-card-title { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 0.3rem; }
+.wedding-card-desc { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.8rem; font-weight: 300; }
+.wedding-price { font-size: 1.1rem; font-weight: 600; color: var(--gold); font-family: var(--font-display); }
+
+/* ── Empty state ── */
+.gallery-empty {
+  grid-column: 1 / -1; text-align: center; padding: 4rem 2rem;
+  color: var(--muted);
+}
+.gallery-empty-icon { font-size: 3rem; margin-bottom: 1rem; }
+.gallery-empty p { font-size: 0.9rem; font-weight: 300; }
+.design-card {
+  border-radius: var(--radius); overflow: hidden;
+  background: var(--cream); box-shadow: var(--shadow);
+  transition: var(--transition); cursor: pointer;
+  border: 1px solid rgba(232,180,184,0.2);
+}
+.design-card:hover {
+  transform: translateY(-6px); box-shadow: var(--shadow-lg);
+}
+.design-card-image {
+  height: 240px; position: relative; overflow: hidden;
+}
+.design-visual {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; transition: transform 0.5s ease;
+  position: relative;
+}
+.design-card:hover .design-visual { transform: scale(1.05); }
+.design-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(58,46,46,0.5));
+}
+.design-badge-card {
+  position: absolute; top: 1rem; right: 1rem;
+  background: rgba(255,255,255,0.9); backdrop-filter: blur(8px);
+  padding: 0.3rem 0.7rem; border-radius: 20px;
+  font-size: 0.7rem; font-weight: 600; color: var(--gold);
+}
+.design-card-body { padding: 1.2rem; }
+.design-name {
+  font-family: var(--font-display); font-size: 1.2rem;
+  font-weight: 400; margin-bottom: 0.3rem;
+}
+.design-desc { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.8rem; font-weight: 300; }
+.design-footer { display: flex; align-items: center; justify-content: space-between; }
+.design-price {
+  font-size: 1.1rem; font-weight: 600; color: var(--deep-rose);
+  font-family: var(--font-display);
+}
+.btn-select {
+  padding: 0.5rem 1.2rem; border-radius: 30px;
+  background: linear-gradient(135deg, var(--deep-rose), #a85860);
+  color: white; border: none; font-family: var(--font-body);
+  font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase;
+  cursor: pointer; transition: var(--transition);
+}
+.btn-select:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(196,113,122,0.4); }
+.btn-select.selected { background: linear-gradient(135deg, var(--gold), #b8924f); }
+
+/* ── BOOKING ── */
+#booking {
+  background: linear-gradient(135deg, var(--blush), var(--cream));
+}
+.booking-container {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;
+  max-width: 900px; margin: 0 auto;
+}
+.booking-panel {
+  background: white; border-radius: var(--radius);
+  padding: 2rem; box-shadow: var(--shadow);
+}
+.panel-title {
+  font-family: var(--font-display); font-size: 1.4rem;
+  margin-bottom: 1.5rem; color: var(--charcoal);
+}
+.form-group { margin-bottom: 1.2rem; }
+.form-label {
+  display: block; font-size: 1.25rem; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; font-weight: 500;
+}
+.form-input, .form-select {
+  width: 100%; padding: 1rem 1rem;
+  border: 1.5px solid rgba(232,180,184,0.4);
+  border-radius: 10px; font-family: var(--font-body); font-size:0.88rem;
+  color: var(--charcoal); background: var(--cream);
+  transition: var(--transition); outline: none;
+}
+.form-input:focus, .form-select:focus {
+  border-color: var(--rose); background: white;
+  box-shadow: 0 0 0 3px rgba(232,180,184,0.2);
+}
+/* ── TECHNICIAN PICKER ── */
+.tech-picker-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.55rem;
+  margin-top: 0.5rem;
+}
+@media (max-width: 480px) { .tech-picker-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.tech-pill {
+  display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+  padding: 0.65rem 0.3rem; border-radius: 12px; cursor: pointer;
+  border: 1.5px solid rgba(232,180,184,0.35); background: var(--cream);
+  transition: var(--transition); user-select: none;
+}
+.tech-pill:hover { border-color: var(--rose); background: #fdf0f2; transform: translateY(-2px); }
+.tech-pill.active {
+  background: linear-gradient(135deg, var(--deep-rose), #a85860);
+  border-color: var(--deep-rose); color: white;
+  box-shadow: 0 5px 18px rgba(196,113,122,0.38);
+  transform: translateY(-2px);
+}
+.tech-pill-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blush), var(--rose));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem; font-weight: 700; color: var(--charcoal);
+  transition: var(--transition); flex-shrink: 0;
+}
+.tech-pill.active .tech-pill-avatar { background: rgba(255,255,255,0.25); color: white; }
+.tech-pill-name { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.3px; line-height: 1; }
+
+/* ── SLOT GRID ── */
+.time-slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin-top: 0.5rem; }
+
+.time-slot {
+  padding: 0.7rem 0.3rem; border-radius: 10px; text-align: center;
+  cursor: pointer; border: 1.5px solid rgba(232,180,184,0.3);
+  background: var(--cream); transition: var(--transition);
+  color: var(--charcoal); display: flex; flex-direction: column;
+  align-items: center; gap: 2px;
+}
+.time-slot:hover:not(.booked) { border-color: var(--rose); background: #fdf0f2; transform: translateY(-2px); }
+.time-slot.selected {
+  background: linear-gradient(135deg, var(--deep-rose), #a85860);
+  color: white; border-color: var(--deep-rose);
+  box-shadow: 0 5px 18px rgba(196,113,122,0.38);
+  transform: translateY(-2px);
+}
+.time-slot.booked { background: #f5f5f5; color: #c0b8b8; cursor: not-allowed; border-color: #ece8e8; }
+.slot-label { font-weight: 700; font-size: 0.78rem; letter-spacing: 0.3px; }
+.slot-time  { font-size: 0.62rem; opacity: 0.8; }
+.slot-tech  { font-size: 0.62rem; font-style: italic; margin-top: 1px; }
+.time-slot.selected .slot-time,
+.time-slot.selected .slot-tech { opacity: 0.85; }
+.time-slot.booked .slot-tech { color: #c0b8b8; }
+.slot-booked-label { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: #b0a8a8; }
+
+/* ── AVAILABILITY MESSAGE ── */
+.availability-msg {
+  padding: 0.8rem 1rem; border-radius: 8px; font-size: 0.85rem;
+  margin-top: 0.8rem; display: none; line-height: 1.4;
+}
+.availability-msg.available  { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; display: block; }
+.availability-msg.unavailable { background: #fce4ec; color: #c62828; border: 1px solid #f8bbd0; display: block; }
+.booking-summary { }
+.summary-item {
+  display: flex; justify-content: space-between;
+  padding: 0.7rem 0; border-bottom: 1px solid var(--blush);
+  font-size: 1rem;
+}
+.summary-label { color: var(--muted); }
+.summary-value { font-weight: 500; }
+.btn-book {
+  width: 100%; padding: 1rem; margin-top: 1.5rem;
+  background: linear-gradient(135deg, var(--deep-rose), #a85860);
+  color: white; border: none; border-radius: 50px;
+  font-family: var(--font-body); font-size: 0.82rem;
+  letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer;
+  transition: var(--transition); box-shadow: 0 6px 25px rgba(196,113,122,0.3);
+}
+.btn-book:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(196,113,122,0.5); }
+
+/* ── AUTH MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(58,46,46,0.5); backdrop-filter: blur(8px);
+  display: none; align-items: center; justify-content: center;
+  padding: 1rem;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: white; border-radius: 20px;
+  padding: 2.5rem; width: 100%; max-width: 420px;
+  box-shadow: var(--shadow-lg);
+  animation: modalIn 0.4s cubic-bezier(0.4,0,0.2,1) both;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.modal-title { font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; }
+.modal-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--muted); transition: var(--transition); }
+.modal-close:hover { color: var(--charcoal); transform: rotate(90deg); }
+.modal-tabs { display: flex; gap: 0; margin-bottom: 1.5rem; border-radius: 10px; overflow: hidden; border: 1.5px solid var(--rose); }
+.tab-btn {
+  flex: 1; padding: 0.7rem; border: none; background: transparent;
+  font-family: var(--font-body); font-size: 0.78rem; letter-spacing: 1px;
+  text-transform: uppercase; cursor: pointer; color: var(--muted); transition: var(--transition);
+}
+.tab-btn.active { background: var(--deep-rose); color: white; }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+.btn-submit {
+  width: 100%; padding: 0.9rem; margin-top: 1rem;
+  background: linear-gradient(135deg, var(--deep-rose), #a85860);
+  color: white; border: none; border-radius: 50px;
+  font-family: var(--font-body); font-size: 0.8rem;
+  letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer;
+  transition: var(--transition);
+}
+.btn-submit:hover { box-shadow: 0 6px 25px rgba(196,113,122,0.4); }
+
+/* ── CART PANEL ── */
+.cart-panel {
+  position: fixed; right: 0; top: 0; bottom: 0; z-index: 1500;
+  width: 360px; background: white;
+  box-shadow: -10px 0 50px rgba(58,46,46,0.15);
+  transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  display: flex; flex-direction: column;
+}
+.cart-panel.open { transform: translateX(0); }
+.cart-header {
+  padding: 1.5rem; border-bottom: 1px solid var(--blush);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.cart-title { font-family: var(--font-display); font-size: 1.5rem; }
+.cart-body { flex: 1; overflow-y: auto; padding: 1.5rem; }
+.cart-item {
+  display: flex; gap: 1rem; align-items: center;
+  padding: 0.8rem 0; border-bottom: 1px solid var(--blush);
+}
+.cart-item-visual {
+  width: 56px; height: 56px; border-radius: 10px; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0;
+}
+.cart-item-info { flex: 1; }
+.cart-item-name { font-weight: 500; font-size: 0.88rem; }
+.cart-item-price { color: var(--deep-rose); font-size: 0.82rem; font-weight: 600; margin-top: 0.2rem; }
+.cart-item-remove {
+  background: none; border: none; color: #ccc; cursor: pointer;
+  font-size: 1.1rem; transition: var(--transition);
+}
+.cart-item-remove:hover { color: var(--deep-rose); }
+.cart-footer { padding: 1.5rem; border-top: 1px solid var(--blush); }
+.cart-total { display: flex; justify-content: space-between; margin-bottom: 1rem; font-weight: 600; }
+.btn-whatsapp {
+  width: 100%; padding: 1rem; border-radius: 50px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white; border: none; font-family: var(--font-body);
+  font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; transition: var(--transition);
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+}
+.btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(37,211,102,0.4); }
+.cart-empty { text-align: center; padding: 3rem 1rem; color: var(--muted); }
+.cart-empty-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+/* ── ADMIN PANEL ── */
+#admin { background: var(--white); }
+.admin-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.admin-card {
+  background: var(--cream); border-radius: var(--radius);
+  padding: 1.8rem; box-shadow: var(--shadow);
+  border: 1px solid rgba(201,169,110,0.15);
+}
+.admin-card-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.admin-icon { font-size: 1.8rem; }
+.admin-card-title { font-family: var(--font-display); font-size: 1.2rem; }
+.admin-stat { font-size: 2rem; font-weight: 600; color: var(--deep-rose); font-family: var(--font-display); }
+.admin-stat-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
+.booking-list { margin-top: 1rem; }
+.booking-entry {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.7rem 0; border-bottom: 1px solid var(--blush);
+  font-size: 0.82rem;
+}
+.booking-entry:last-child { border-bottom: none; }
+.be-name { font-weight: 500; }
+.be-time { color: var(--muted); }
+.be-status {
+  font-size: 0.68rem; padding: 0.25rem 0.6rem; border-radius: 20px;
+  background: #e8f5e9; color: #2e7d32; font-weight: 500;
+}
+.customer-entry {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0.6rem 0; border-bottom: 1px solid var(--blush);
+}
+.customer-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: 600; font-size: 0.85rem; flex-shrink: 0;
+}
+.customer-name { font-weight: 500; font-size: 0.85rem; }
+.customer-meta { font-size: 0.72rem; color: var(--muted); }
+.notify-form { }
+.notify-textarea {
+  width: 100%; padding: 0.8rem; border: 1.5px solid rgba(232,180,184,0.3);
+  border-radius: 10px; font-family: var(--font-body); font-size: 0.85rem;
+  min-height: 80px; resize: vertical; outline: none; transition: var(--transition);
+  background: white;
+}
+.notify-textarea:focus { border-color: var(--rose); box-shadow: 0 0 0 3px rgba(232,180,184,0.2); }
+.btn-notify {
+  margin-top: 0.8rem; padding: 0.7rem 1.5rem; border-radius: 30px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white; border: none; font-family: var(--font-body);
+  font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase;
+  cursor: pointer; transition: var(--transition); width: 100%;
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+}
+.btn-notify:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(37,211,102,0.3); }
+
+/* ── CONTACT ── */
+#contact { background: linear-gradient(135deg, var(--charcoal) 0%, #2a1f1f 100%); color: white; }
+#contact .section-title { color: white; }
+#contact .section-badge { color: var(--gold-light); }
+#contact .section-subtitle { color: rgba(255,255,255,0.5); }
+.contact-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem; max-width: 900px; margin: 0 auto;
+}
+.contact-card {
+  background: rgba(255,255,255,0.07); border-radius: var(--radius);
+  padding: 1.8rem; text-align: center;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: var(--transition);
+}
+.contact-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-4px); }
+.contact-icon { font-size: 1rem; margin-bottom: 1rem; display: block; }
+.contact-label { font-size: 1.25rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.5rem; }
+.contact-value { font-size: 1.25rem; color: rgba(255,255,255,0.8); }
+.contact-value a { color: inherit; text-decoration: none; }
+.contact-value a:hover { color: var(--gold-light); }
+.social-links { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }
+.social-link {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;
+  text-decoration: none; font-size: 1rem; color: white; transition: var(--transition);
+}
+.social-link:hover { background: var(--gold); transform: translateY(-2px); }
+.btn-whatsapp-contact {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.7rem 1.5rem; border-radius: 30px;
+  background: #25D366; color: white; text-decoration: none;
+  font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;
+  margin-top: 0.8rem; transition: var(--transition); font-family: var(--font-body);
+}
+.btn-whatsapp-contact:hover { background: #128C7E; transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer {
+  background: #1a1010; padding: 2rem 5%;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: gap;
+  border-top: 1px solid rgba(201,169,110,0.1);
+}
+.footer-logo { font-family: var(--font-display); color: white; font-size: 1.3rem; }
+.footer-logo span { color: var(--gold); }
+.footer-copy { color: rgba(255,255,255,0.3); font-size: 0.78rem; }
+
+/* ── FLOATING WHATSAPP ── */
+.fab-whatsapp {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 900;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #25D366; color: white; border: none;
+  font-size: 1.6rem; cursor: pointer; box-shadow: 0 6px 25px rgba(37,211,102,0.5);
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition); text-decoration: none;
+  animation: pulse 2s ease infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 6px 25px rgba(37,211,102,0.5); }
+  50% { box-shadow: 0 6px 40px rgba(37,211,102,0.8), 0 0 0 12px rgba(37,211,102,0.1); }
+}
+.fab-whatsapp:hover { transform: scale(1.1); }
+
+/* ── TOAST ── */
+.toast {
+  position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px);
+  background: var(--charcoal); color: white; padding: 0.8rem 1.8rem;
+  border-radius: 30px; font-size: 0.85rem; z-index: 3000;
+  transition: var(--transition); box-shadow: var(--shadow-lg);
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.animate-up.visible { opacity: 1; transform: translateY(0); }
+.animate-up:nth-child(2) { transition-delay: 0.1s; }
+.animate-up:nth-child(3) { transition-delay: 0.2s; }
+.animate-up:nth-child(4) { transition-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-content { padding: 2rem 1.5rem; }
+  .hero-visual { height: 350px; }
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 70px; left: 0; right: 0; background: var(--cream);
+    padding: 1.5rem; border-bottom: 1px solid var(--rose); gap: 1.2rem;
+    box-shadow: var(--shadow);
+  }
+  .booking-container { grid-template-columns: 1fr; }
+  .hero-stats { gap: 1.5rem; }
+  section { padding: 3.5rem 5%; }
+  .cart-panel { width: 100%; }
+}
+@media (max-width: 600px) {
+  .hero-title { font-size: 2.5rem; }
+  .admin-grid { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+}
+
+/* ── DECORATIVE ── */
+.petals {
+  position: absolute; pointer-events: none; overflow: hidden; inset: 0;
+}
+.petal {
+  position: absolute; width: 8px; height: 8px; border-radius: 50% 0;
+  background: rgba(232,180,184,0.5); animation: fall linear infinite;
+}
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* Auth badge display */
+.auth-badge {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.8rem; color: var(--muted);
+}
+.auth-badge-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #4caf50;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">Luxe<span>Nails</span></div>
+  <div class="nav-links" id="navLinks">
+    <a href="#hero">Home</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#booking">Book</a>
+    <a href="#admin">Admin</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <div id="authStatus" class="auth-badge" style="display:none">
+      <div class="auth-badge-dot"></div>
+      <span id="authName"></span>
+    </div>
+    <button class="btn-nav" id="loginBtn" onclick="openModal()">Login</button>
+    <button class="btn-nav" id="logoutBtn" style="display:none" onclick="logout()">Logout</button>
+    <button class="cart-btn" onclick="toggleCart()" title="View Cart">
+      🛍️
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <button class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">✨ Premium Nail Studio</div>
+    <h1 class="hero-title">Beautiful Nails,<br><em>Perfected</em> for You</h1>
+    <p class="hero-tagline">Where artistry meets elegance. We craft bespoke nail designs tailored to your unique style — because every detail matters.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">📅 Book Appointment</button>
+      <button class="btn-outline" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">💅 View Designs</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">500+</span><span class="stat-label">Happy Clients</span></div>
+      <div class="stat-item"><span class="stat-num">120+</span><span class="stat-label">Designs</span></div>
+      <div class="stat-item"><span class="stat-num">5★</span><span class="stat-label">Rated</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-image-grid">
+      <div class="hero-img-card">
+        <div class="nail-visual nail-visual-1">
+           <img src="images/a3.jpg" alt="Nail Design" class="nail-img">
+            <ellipse cx="80" cy="110" rx="55" ry="75" fill="rgba(255,255,255,0.4)"/>
+            <ellipse cx="55" cy="115" rx="22" ry="60" fill="rgba(255,255,255,0.35)" transform="rotate(-10 55 115)"/>
+            <ellipse cx="105" cy="115" rx="22" ry="60" fill="rgba(255,255,255,0.35)" transform="rotate(10 105 115)"/>
+            <ellipse cx="30" cy="120" rx="18" ry="50" fill="rgba(255,255,255,0.3)" transform="rotate(-20 30 120)"/>
+            <ellipse cx="130" cy="120" rx="18" ry="50" fill="rgba(255,255,255,0.3)" transform="rotate(20 130 120)"/>
+            <circle cx="80" cy="55" r="18" fill="rgba(255,255,255,0.5)"/>
+            <circle cx="55" cy="62" r="12" fill="rgba(255,255,255,0.45)"/>
+            <circle cx="105" cy="62" r="12" fill="rgba(255,255,255,0.45)"/>
+            <circle cx="30" cy="70" r="10" fill="rgba(255,255,255,0.4)"/>
+            <circle cx="130" cy="70" r="10" fill="rgba(255,255,255,0.4)"/>
+            <!-- Nail art dots -->
+            <circle cx="80" cy="95" r="4" fill="rgba(201,169,110,0.8)"/>
+            <circle cx="68" cy="88" r="3" fill="rgba(201,169,110,0.7)"/>
+            <circle cx="92" cy="88" r="3" fill="rgba(201,169,110,0.7)"/>
+          </svg>
+        </div>
+        <div class="floating-tag">Gel Art <span>from KES 2,500</span></div>
+      </div>
+      <div class="hero-img-card">
+        <div class="nail-visual nail-visual-2" style="background:linear-gradient(135deg,#f5e6d3,#e8c9a8)">
+       <img src="images/a2.jpg" alt="Nail Design" class="nail-img">
+            <ellipse cx="40" cy="55" rx="28" ry="38" fill="rgba(255,255,255,0.5)"/>
+            <circle cx="40" cy="25" r="12" fill="rgba(255,255,255,0.6)"/>
+            <!-- flower -->
+            <circle cx="40" cy="55" r="5" fill="rgba(196,113,122,0.7)"/>
+            <circle cx="40" cy="44" r="4" fill="rgba(232,180,184,0.8)"/>
+            <circle cx="40" cy="66" r="4" fill="rgba(232,180,184,0.8)"/>
+            <circle cx="29" cy="55" r="4" fill="rgba(232,180,184,0.8)"/>
+            <circle cx="51" cy="55" r="4" fill="rgba(232,180,184,0.8)"/>
+          </svg>
+        </div>
+      </div>
+      <div class="hero-img-card">
+        <div class="nail-visual nail-visual-3" style="background:linear-gradient(135deg,#f3d8bf,#d4a574)">
+            <img src="images/a4.jpg" alt="Nail Design" class="nail-img">
+            <ellipse cx="40" cy="55" rx="28" ry="38" fill="rgba(255,255,255,0.4)"/>
+            <circle cx="40" cy="25" r="12" fill="rgba(255,255,255,0.5)"/>
+            <!-- glitter effect -->
+            <circle cx="33" cy="45" r="2" fill="rgba(201,169,110,0.9)"/>
+            <circle cx="47" cy="42" r="2" fill="rgba(201,169,110,0.9)"/>
+            <circle cx="38" cy="60" r="2" fill="rgba(201,169,110,0.9)"/>
+            <circle cx="50" cy="58" r="2" fill="rgba(201,169,110,0.9)"/>
+            <circle cx="30" cy="65" r="2" fill="rgba(201,169,110,0.9)"/>
+            <circle cx="44" cy="72" r="2" fill="rgba(201,169,110,0.9)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-header animate-up">
+    <div class="section-badge">Our Designs</div>
+    <h2 class="section-title">Nail <em>Collections</em></h2>
+    <div class="gold-divider"><span>✦</span></div>
+    <p class="section-subtitle">Choose from our curated collection of stunning designs</p>
+  </div>
+
+  <!-- ── TIER 1: Main Category Buttons ── -->
+  <div class="gallery-main-cats animate-up" id="mainCatBtns">
+    <button class="main-cat-btn active" onclick="selectMainCat('nail-designs', this)">💅 Nail Designs</button>
+    <button class="main-cat-btn" onclick="selectMainCat('nail-art', this)">🎨 Nail Art</button>
+    <button class="main-cat-btn" onclick="selectMainCat('wedding-combo', this)">💍 Wedding Combo</button>
+    <button class="main-cat-btn" onclick="selectMainCat('color-combo', this)">🎨 Nail Color Combo</button>
+    <button class="main-cat-btn" onclick="selectMainCat('videos', this)">🎬 Our Videos</button>
+  </div>
+
+  <!-- ── TIER 2: Sub-category Buttons (shown dynamically) ── -->
+  <div class="gallery-subcats" id="subCatBtns"></div>
+
+  <!-- ── GALLERY GRID ── -->
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="section-header animate-up">
+    <div class="section-badge">Schedule</div>
+    <h2 class="section-title">Book Your <em>Appointment</em></h2>
+    <div class="gold-divider"><span>✦</span></div>
+    <p class="section-subtitle">Pick your technician, date and slot</p>
+  </div>
+  <div class="booking-container">
+    <div class="booking-panel animate-up">
+      <h3 class="panel-title">Book an Appointment</h3>
+
+      <!-- Name -->
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-input" id="bookName" placeholder="Full name">
+      </div>
+
+      <!-- Phone -->
+      <div class="form-group">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" class="form-input" id="bookPhone" placeholder="+254 7XX XXX XXX">
+      </div>
+
+      <!-- Service -->
+      <div class="form-group">
+        <label class="form-label">Service</label>
+        <select class="form-select" id="bookService">
+          <option value="">Choose a service…</option>
+          <option value="Gel Manicure">Gel Manicure — KES 2,500</option>
+          <option value="Acrylic Full Set">Acrylic Full Set — KES 3,500</option>
+          <option value="Nail Art">Nail Art — KES 1,500+</option>
+          <option value="Ombré Nails">Ombré Nails — KES 3,000</option>
+          <option value="French Manicure">French Manicure — KES 2,000</option>
+          <option value="Nail Repair">Nail Repair — KES 500</option>
+        </select>
+      </div>
+
+      <!-- Technician Picker -->
+      <div class="form-group">
+        <label class="form-label">Nail Technician <span style="color:var(--deep-rose);font-size:0.8rem">* required</span></label>
+        <div class="tech-picker-grid" id="techPickerGrid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+
+      <!-- Date -->
+      <div class="form-group">
+        <label class="form-label">Date</label>
+        <input type="date" class="form-input" id="bookDate" onchange="loadSlots()">
+      </div>
+
+      <!-- Slots -->
+      <div class="form-group">
+        <label class="form-label">Available Slots</label>
+        <div class="time-slots" id="timeSlots">
+          <p style="color:var(--muted);font-size:0.8rem;grid-column:span 3;padding:0.5rem 0">
+            ✂️ Select a technician &amp; date to see availability
+          </p>
+        </div>
+      </div>
+
+      <div class="availability-msg" id="availMsg"></div>
+      <button class="btn-book" onclick="confirmBooking()">✨ Confirm Booking via WhatsApp</button>
+    </div>
+    <div class="booking-panel animate-up" id="bookingSummaryPanel">
+      <h3 class="panel-title">Booking Summary</h3>
+      <div id="bookingSummaryItems">
+        <p style="color:var(--muted);font-size:0.85rem">Your booking details will appear here as you fill in the form.</p>
+      </div>
+      <div style="margin-top:2rem;padding:1.5rem;background:var(--blush);border-radius:12px;">
+        <div style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:0.8rem">📍 Our Location</div>
+        <p style="font-size:0.82rem;color:var(--muted);line-height:1.8">Luxe Nails Studio<br>Gilgil Town Centre<br>Nakuru County, Kenya</p>
+        <div style="margin-top:1rem;font-size:0.82rem;color:var(--muted)">
+          <div>🕐 Mon – Sat: 8:00 AM – 7:00 PM</div>
+          <div>🕐 Sunday: 10:00 AM – 5:00 PM</div>
+        </div>
+      </div>
+      <div style="margin-top:1rem;padding:1rem;background:linear-gradient(135deg,var(--gold-light),var(--nude));border-radius:12px;">
+        <div style="font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:0.5rem">💳 Payment</div>
+        <p style="font-size:0.8rem;color:var(--charcoal)">We accept M-Pesa, Cash and Card payments. A 30% deposit confirms your booking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMIN -->
+<section id="admin">
+  <div class="section-header animate-up">
+    <div class="section-badge">Management</div>
+    <h2 class="section-title">Admin <em>Dashboard</em></h2>
+    <div class="gold-divider"><span>✦</span></div>
+    <p class="section-subtitle">Manage bookings, customers, and notifications</p>
+  </div>
+  <div class="admin-grid">
+    <!-- Stats -->
+    <div class="admin-card animate-up">
+      <div class="admin-card-header">
+        <span class="admin-icon">📊</span>
+        <div class="admin-card-title">Overview</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+        <div><div class="admin-stat" id="statBookings">0</div><div class="admin-stat-label">Bookings</div></div>
+        <div><div class="admin-stat" id="statCustomers">0</div><div class="admin-stat-label">Customers</div></div>
+        <div><div class="admin-stat" id="statDesigns">12</div><div class="admin-stat-label">Designs</div></div>
+        <div><div class="admin-stat" id="statRevenue">—</div><div class="admin-stat-label">Revenue</div></div>
+      </div>
+    </div>
+    <!-- Bookings -->
+    <div class="admin-card animate-up">
+      <div class="admin-card-header">
+        <span class="admin-icon">📅</span>
+        <div class="admin-card-title">Recent Bookings</div>
+      </div>
+      <div class="booking-list" id="adminBookingList">
+        <p style="color:var(--muted);font-size:0.82rem">No bookings yet</p>
+      </div>
+    </div>
+    <!-- Customers -->
+    <div class="admin-card animate-up">
+      <div class="admin-card-header">
+        <span class="admin-icon">👤</span>
+        <div class="admin-card-title">Customers</div>
+      </div>
+      <div id="adminCustomerList">
+        <p style="color:var(--muted);font-size:0.82rem">No customers yet</p>
+      </div>
+    </div>
+    <!-- Notify -->
+    <div class="admin-card animate-up">
+      <div class="admin-card-header">
+        <span class="admin-icon">📢</span>
+        <div class="admin-card-title">Send Notification</div>
+      </div>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1rem">Broadcast a message to all saved customers via WhatsApp</p>
+      <textarea class="notify-textarea" id="notifyMsg" placeholder="e.g. ✨ New chrome nail designs are in! Book now and get 20% off this weekend only. — Luxe Nails Studio"></textarea>
+      <button class="btn-notify" onclick="sendBroadcast()">📲 Send WhatsApp Blast</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header animate-up">
+    <div class="section-badge">Reach Us</div>
+    <h2 class="section-title">Get In <em>Touch</em></h2>
+    <div class="gold-divider"><span>✦</span></div>
+    <p class="section-subtitle">We'd love to hear from you</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card animate-up">
+      <span class="contact-icon">📞</span>
+      <div class="contact-label">Phone</div>
+      <div class="contact-value"><a href="tel:+254788784284">+254 788784284</a></div>
+      <a class="btn-whatsapp-contact" href="https://wa.me/254788784284" target="_blank">💬 Chat on WhatsApp</a>
+    </div>
+    <div class="contact-card animate-up">
+      <span class="contact-icon">📍</span>
+      <div class="contact-label">Location</div>
+      <div class="contact-value">Gilgil Town Centre<br>Nakuru County, Kenya</div>
+    </div>
+    <div class="contact-card animate-up">
+      <span class="contact-icon">🕐</span>
+      <div class="contact-label">Hours</div>
+      <div class="contact-value">Mon–Sat: 8am – 7pm<br>Sunday: 10am – 5pm</div>
+    </div>
+    <div class="contact-card animate-up">
+      <span class="contact-icon">🌐</span>
+      <div class="contact-label">Follow Us</div>
+      <div class="contact-value">@luxenailsstudio</div>
+      <div class="social-links">
+        <a class="social-link" href="https://www.instagram.com/luxenailsstudio/" title="Instagram">📸</a>
+        <a class="social-link" href="https://www.facebook.com/luxenailsstudio/" title="Facebook">👍</a>
+        <a class="social-link" href="https://www.tiktok.com/@luxenailsstudio" title="TikTok">🎵</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Luxe<span>Nails</span></div>
+  <div class="footer-copy">© 2025 Luxe Nails Studio · All rights reserved · Gilgil, Kenya</div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="fab-whatsapp" href="https://wa.me/254788784284?text=Hello%20Luxe%20Nails!%20I'd%20like%20to%20book%20an%20appointment." target="_blank" title="WhatsApp Us">💬</a>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Welcome 💅</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-tabs">
+      <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+      <button class="tab-btn" onclick="switchTab('signup')">Sign Up</button>
+    </div>
+    <!-- Login -->
+    <div class="tab-content active" id="tab-login">
+      <div class="form-group">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" class="form-input" id="loginPhone" placeholder="+254 7XX XXX XXX">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-input" id="loginPass" placeholder="••••••••">
+      </div>
+      <button class="btn-submit" onclick="doLogin()">Login</button>
+    </div>
+    <!-- Signup -->
+    <div class="tab-content" id="tab-signup">
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-input" id="signupName" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" class="form-input" id="signupPhone" placeholder="+254 7XX XXX XXX">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-input" id="signupPass" placeholder="Create a password">
+      </div>
+      <button class="btn-submit" onclick="doSignup()">Create Account</button>
+    </div>
+  </div>
+</div>
+
+<!-- CART PANEL -->
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-header">
+    <h3 class="cart-title">Your Cart 🛍️</h3>
+    <button class="modal-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty">
+      <div class="cart-empty-icon">💅</div>
+      <p>No designs selected yet.<br>Browse our gallery!</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cartTotal">KES 0</span>
+    </div>
+    <button class="btn-whatsapp" onclick="checkoutWhatsApp()">
+      💬 Order via WhatsApp
+    </button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ══════════════════════════════════════════════
+//  DATA — Extended with mainCategory & subCategory
+// ══════════════════════════════════════════════
+
+/* ─── NAIL DESIGNS ─── */
+const DESIGNS = [
+  // Gel Designs
+  { id:1,  name:'Rose Bloom Gel',    desc:'Delicate floral art on soft pink gel base',        price:3500, mainCategory:'nail-designs', subCategory:'gel',     category:'gel',     image:'/images/n1.jpg' },
+  { id:2,  name:'Nude Minimalist',   desc:'Clean nude gel style with glossy finish',          price:2500, mainCategory:'nail-designs', subCategory:'gel',     category:'gel',     image:'/images/n6.jpg' },
+  { id:3,  name:'Sleek Black Gel',   desc:'Glossy black gel with minimalist accents',         price:3000, mainCategory:'nail-designs', subCategory:'gel',     category:'gel',     image:'/images/n9.jpg' },
+  // Acrylic Designs
+  { id:4,  name:'Marble Acrylics',   desc:'Hand-painted marble veining on sculpted tips',     price:5000, mainCategory:'nail-designs', subCategory:'acrylic', category:'acrylic', image:'/images/n4.jpg' },
+  { id:5,  name:'Glitter Explosion', desc:'Full coverage glitter acrylics',                   price:4500, mainCategory:'nail-designs', subCategory:'acrylic', category:'acrylic', image:'/images/n7.jpg' },
+  { id:6,  name:'Pink Quartz',       desc:'Soft pink acrylics with quartz-like shimmer',      price:4500, mainCategory:'nail-designs', subCategory:'acrylic', category:'acrylic', image:'/images/n11.jpg' },
+  // French Designs
+  { id:7,  name:'Gold Foil French',  desc:'Classic french tips with luxe gold foil',          price:3000, mainCategory:'nail-designs', subCategory:'french',  category:'french',  image:'/images/n3.jpg' },
+  { id:8,  name:'Classic Red French',desc:'Timeless red tips on nude base',                   price:3200, mainCategory:'nail-designs', subCategory:'french',  category:'french',  image:'/images/a1.jpg' },
+  { id:9,  name:'White Pearl French',desc:'Elegant pearl-white tips on blush base',           price:3000, mainCategory:'nail-designs', subCategory:'french',  category:'french',  image:'/images/a2.jpg' },
+  // Ombre Designs
+  { id:10, name:'Chrome Ombré',      desc:'Seamless silver-to-rose chrome gradient',          price:4000, mainCategory:'nail-designs', subCategory:'ombre',   category:'ombre',   image:'/images/n2.jpg' },
+  { id:11, name:'Ocean Waves',       desc:'Blue-green ombré with wave patterns',              price:4000, mainCategory:'nail-designs', subCategory:'ombre',   category:'ombre',   image:'/images/n10.jpg' },
+  { id:12, name:'Sunset Fade',       desc:'Warm coral-to-gold ombré fade',                    price:3800, mainCategory:'nail-designs', subCategory:'ombre',   category:'ombre',   image:'/images/a3.jpg' },
+  // Nail Art Designs
+  { id:13, name:'Pastel Rainbow',    desc:'Soft multi-color ombré nail art',                  price:3800, mainCategory:'nail-designs', subCategory:'nail-art-design', category:'nail-art', image:'/images/n5.jpg' },
+  { id:14, name:'Floral Fantasy',    desc:'3D floral nail art on soft base',                  price:5500, mainCategory:'nail-designs', subCategory:'nail-art-design', category:'nail-art', image:'/images/n8.jpg' },
+  { id:15, name:'Geometric Lines',   desc:'Sharp geometric line art in black & gold',         price:4200, mainCategory:'nail-designs', subCategory:'nail-art-design', category:'nail-art', image:'/images/a4.jpg' },
+
+  // ─── NAIL ART ───
+  // Floral
+  { id:20, name:'Spring Florals',    desc:'Hand-painted cherry blossoms on nude base',        price:4800, mainCategory:'nail-art', subCategory:'floral',      category:'nail-art', image:'/images/a5.jpg' },
+  { id:21, name:'Rose Garden',       desc:'Layered rose petals in blush & rose tones',        price:5000, mainCategory:'nail-art', subCategory:'floral',      category:'nail-art', image:'/images/a6.jpg' },
+  { id:22, name:'Daisy Dreams',      desc:'Cute daisy accents on creamy white gel',           price:4200, mainCategory:'nail-art', subCategory:'floral',      category:'nail-art', image:'/images/a7.jpg' },
+  // Glitter
+  { id:23, name:'Galaxy Glitter',    desc:'Full holographic glitter with micro-sparkle',      price:4500, mainCategory:'nail-art', subCategory:'glitter',     category:'nail-art', image:'/images/a8.jpg' },
+  { id:24, name:'Rose Gold Glam',    desc:'Rose gold chunky glitter on nude tips',            price:4000, mainCategory:'nail-art', subCategory:'glitter',     category:'nail-art', image:'/images/a9.jpg' },
+  { id:25, name:'Midnight Sparkle',  desc:'Black base with silver glitter gradient',          price:4200, mainCategory:'nail-art', subCategory:'glitter',     category:'nail-art', image:'/images/a10.jpg' },
+  // Minimalist
+  { id:26, name:'Thin Line Art',     desc:'Delicate single-line art on bare nail',            price:3200, mainCategory:'nail-art', subCategory:'minimalist',  category:'nail-art', image:'/images/a11.jpg' },
+  { id:27, name:'Negative Space',    desc:'Modern negative space geometric nail design',      price:3500, mainCategory:'nail-art', subCategory:'minimalist',  category:'nail-art', image:'/images/a12.jpg' },
+  { id:28, name:'Dot Matrix',        desc:'Precise dot art in soft nude palette',             price:3000, mainCategory:'nail-art', subCategory:'minimalist',  category:'nail-art', image:'/images/a13.jpg' },
+  // 3D Art
+  { id:29, name:'3D Bow Nails',      desc:'Sculptured 3D bows in pink & gold',               price:6500, mainCategory:'nail-art', subCategory:'3d-art',      category:'nail-art', image:'/images/a14.jpg' },
+  { id:30, name:'3D Floral Gems',    desc:'Raised floral gems with rhinestone detail',        price:7000, mainCategory:'nail-art', subCategory:'3d-art',      category:'nail-art', image:'/images/a15.jpg' },
+  { id:31, name:'3D Butterfly',      desc:'Delicate 3D butterfly wing nail art',              price:6800, mainCategory:'nail-art', subCategory:'3d-art',      category:'nail-art', image:'/images/a16.jpg' },
+
+  // ─── WEDDING COMBO ───
+  { id:40, name:'Bridal Elegance',   desc:'Pearl french tips with rhinestone accents — perfect for the big day', price:8000, mainCategory:'wedding-combo', subCategory:'wedding', category:'wedding', image:'/images/a17.jpg' },
+  { id:41, name:'Garden Bride',      desc:'Soft floral gel art on ivory base for bridesmaids', price:6000, mainCategory:'wedding-combo', subCategory:'wedding', category:'wedding', image:'/images/a18.jpg' },
+  { id:42, name:'Gold Bridal Set',   desc:'Matching gold foil tips & nail art for bride + party', price:9000, mainCategory:'wedding-combo', subCategory:'wedding', category:'wedding', image:'/images/a19.jpg' },
+  { id:43, name:'Romantic Blush',    desc:'Soft blush ombré with micro roses — ultimate bridal look', price:7500, mainCategory:'wedding-combo', subCategory:'wedding', category:'wedding', image:'/images/a20.jpg' },
+
+  // ─── NAIL COLOR COMBO ───
+  // Nude Combos
+  { id:50, name:'Latte Nude',        desc:'Warm latte-toned nude across 5 matching shades',   price:2800, mainCategory:'color-combo', subCategory:'nude-combo',   category:'color-combo', image:'/images/a21.jpg' },
+  { id:51, name:'Porcelain Set',     desc:'Cool porcelain nudes for a timeless look',          price:2800, mainCategory:'color-combo', subCategory:'nude-combo',   category:'color-combo', image:'/images/a22.jpg' },
+  // Bright Combos
+  { id:52, name:'Citrus Pop',        desc:'Bold orange, coral & yellow — summer energy',       price:3000, mainCategory:'color-combo', subCategory:'bright-combo', category:'color-combo', image:'/images/a23.jpg' },
+  { id:53, name:'Berry Burst',       desc:'Vivid berry, fuchsia & electric pink combo',        price:3200, mainCategory:'color-combo', subCategory:'bright-combo', category:'color-combo', image:'/images/a24.jpg' },
+  // Pastel Combos
+  { id:54, name:'Cotton Candy',      desc:'Baby pink, lilac & mint — dreamy pastel set',       price:3000, mainCategory:'color-combo', subCategory:'pastel-combo', category:'color-combo', image:'/images/a25.jpg' },
+  { id:55, name:'Soft Sorbet',       desc:'Peach, sky blue & vanilla pastel palette',          price:3000, mainCategory:'color-combo', subCategory:'pastel-combo', category:'color-combo', image:'/images/a26.jpg' },
+  // Dark Combos
+  { id:56, name:'Midnight Hues',     desc:'Deep plum, navy & charcoal for bold nights',        price:3500, mainCategory:'color-combo', subCategory:'dark-combo',   category:'color-combo', image:'/images/a27.jpg' },
+  { id:57, name:'Vampire Red Set',   desc:'Rich oxblood, burgundy & matte black combo',        price:3500, mainCategory:'color-combo', subCategory:'dark-combo',   category:'color-combo', image:'/images/a28.jpg' },
+];
+
+/* ─── VIDEO CONTENT ─── */
+const VIDEOS = {
+  'hand-design': [
+    { id:'v1', title:'Gel Art Tutorial',      desc:'Step-by-step gel nail art — from prep to topcoat', src:'' },
+    { id:'v2', title:'French Tip Masterclass',desc:'Perfect french tips in under 10 minutes',           src:'' },
+    { id:'v3', title:'Ombré Blending Secrets',desc:'How we achieve our flawless chrome ombré look',     src:'' },
+    { id:'v4', title:'3D Nail Art Demo',      desc:'Creating sculptured 3D designs live',               src:'' },
+  ],
+  'foot-design': [
+    { id:'v5', title:'Pedicure & Nail Art',   desc:'Luxe pedicure experience with gel colour',          src:'' },
+    { id:'v6', title:'Foot Ombré Design',     desc:'Ombré gradient colour on toenails',                 src:'' },
+    { id:'v7', title:'Floral Foot Art',       desc:'Delicate floral patterns for summer feet',          src:'' },
+  ],
+};
+
+// 7 named slots mapped to real time windows
+const SLOTS = [
+  { id: 'Slot 1', time: '9:00 AM'  },
+  { id: 'Slot 2', time: '10:30 AM' },
+  { id: 'Slot 3', time: '12:00 PM' },
+  { id: 'Slot 4', time: '1:30 PM'  },
+  { id: 'Slot 5', time: '3:00 PM'  },
+  { id: 'Slot 6', time: '4:30 PM'  },
+  { id: 'Slot 7', time: '6:00 PM'  },
+];
+
+// The 7 nail technicians
+const TECHNICIANS = ['John', 'Meosha', 'Carter', 'James', 'Annita', 'Grace', 'Rebecca'];
+const WHATSAPP_NUMBER = '254788784284';
+const SUB_CATS = {
+  'nail-designs': [
+    { key:'all-nd',         label:'✨ All Designs' },
+    { key:'gel',            label:'💎 Gel Designs' },
+    { key:'acrylic',        label:'✦ Acrylic Designs' },
+    { key:'french',         label:'🤍 French Designs' },
+    { key:'ombre',          label:'🌅 Ombré Designs' },
+    { key:'nail-art-design',label:'🎨 Nail Art Designs' },
+  ],
+  'nail-art': [
+    { key:'all-na',    label:'✨ All Nail Art' },
+    { key:'floral',    label:'🌸 Floral' },
+    { key:'glitter',   label:'✨ Glitter' },
+    { key:'minimalist',label:'◦ Minimalist' },
+    { key:'3d-art',    label:'🔮 3D Art' },
+  ],
+  'color-combo': [
+    { key:'all-cc',       label:'✨ All Combos' },
+    { key:'nude-combo',   label:'🤍 Nude Combos' },
+    { key:'bright-combo', label:'🌈 Bright Combos' },
+    { key:'pastel-combo', label:'🍬 Pastel Combos' },
+    { key:'dark-combo',   label:'🖤 Dark Combos' },
+  ],
+  'videos': [
+    { key:'hand-design', label:'🤲 Hand Design Videos' },
+    { key:'foot-design', label:'🦶 Foot Design Videos' },
+  ],
+};
+
+// ══════════════════════════════════════════════
+//  STATE (localStorage-backed)
+// ══════════════════════════════════════════════
+let cart = [];
+let currentUser = null;
+let selectedSlot = null;        // currently selected slot ID e.g. "Slot 3"
+let selectedTechnician = null;  // currently selected technician name
+let activeMainCat = 'nail-designs';
+let activeSubCat  = 'all-nd';
+
+function getStore(k, def) {
+  try { return JSON.parse(localStorage.getItem(k)) || def; } catch { return def; }
+}
+function setStore(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
+
+let bookings  = getStore('luxe_bookings', []);
+let customers = getStore('luxe_customers', []);
+
+function saveState() {
+  setStore('luxe_bookings', bookings);
+  setStore('luxe_customers', customers);
+}
+
+// ══════════════════════════════════════════════
+//  GALLERY — Main category selection
+// ══════════════════════════════════════════════
+
+/**
+ * Called when user clicks a main category button.
+ * Shows matching subcategory row and renders default content.
+ */
+function selectMainCat(mainCat, btn) {
+  activeMainCat = mainCat;
+
+  // Highlight active main button
+  document.querySelectorAll('.main-cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Build & show sub-category row (if applicable)
+  const subCatRow = document.getElementById('subCatBtns');
+  const subs = SUB_CATS[mainCat];
+
+  if (subs && subs.length > 0) {
+    subCatRow.innerHTML = subs.map((s, i) =>
+      `<button class="filter-btn${i === 0 ? ' active' : ''}"
+        onclick="selectSubCat('${s.key}', this, '${mainCat}')">${s.label}</button>`
+    ).join('');
+    subCatRow.classList.add('visible');
+    // Select first sub by default
+    activeSubCat = subs[0].key;
+  } else {
+    subCatRow.innerHTML = '';
+    subCatRow.classList.remove('visible');
+    activeSubCat = null;
+  }
+
+  // Render content
+  renderByMainAndSub(mainCat, activeSubCat);
+}
+
+/**
+ * Called when user clicks a sub-category button.
+ */
+function selectSubCat(subCat, btn, mainCat) {
+  activeSubCat = subCat;
+  document.querySelectorAll('#subCatBtns .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderByMainAndSub(mainCat || activeMainCat, subCat);
+}
+
+/**
+ * Master render dispatcher — decides what to show based on main + sub category.
+ */
+function renderByMainAndSub(mainCat, subCat) {
+  const grid = document.getElementById('galleryGrid');
+
+  // Animate out
+  grid.classList.add('fading');
+
+  setTimeout(() => {
+    grid.classList.remove('fading');
+
+    if (mainCat === 'videos') {
+      renderVideos(subCat, grid);
+    } else if (mainCat === 'wedding-combo') {
+      renderWeddingCombos(grid);
+    } else {
+      // Filter DESIGNS by mainCategory, and optionally subCategory
+      let filtered = DESIGNS.filter(d => d.mainCategory === mainCat);
+      const allKeys = { 'all-nd': true, 'all-na': true, 'all-cc': true };
+      if (subCat && !allKeys[subCat]) {
+        filtered = filtered.filter(d => d.subCategory === subCat);
+      }
+      renderDesignCards(filtered, grid);
+    }
+
+    observeAnimations();
+  }, 200);
+}
+
+// ══════════════════════════════════════════════
+//  GALLERY — Render functions
+// ══════════════════════════════════════════════
+
+/** Renders standard design cards (nail designs, nail art, color combos) */
+function renderDesignCards(designs, grid) {
+  if (!designs.length) {
+    grid.innerHTML = `
+      <div class="gallery-empty">
+        <div class="gallery-empty-icon">💅</div>
+        <p>No designs found in this category yet.<br>
+        Add your images to the DESIGNS array to populate this section.</p>
+      </div>`;
+    return;
+  }
+  grid.innerHTML = designs.map(d => `
+    <div class="design-card animate-up" data-cat="${d.category}" id="card-${d.id}">
+      <div class="design-card-image">
+        <div class="design-visual">
+          <img src="${d.image}" style="width:100%; height:100%; object-fit:cover;" alt="${d.name}"
+            onerror="this.parentElement.style.background='linear-gradient(135deg,var(--blush),var(--nude))'">
+        </div>
+        <div class="design-overlay"></div>
+        <div class="design-badge-card">KES ${d.price.toLocaleString()}</div>
+      </div>
+      <div class="design-card-body">
+        <div class="design-name">${d.name}</div>
+        <div class="design-desc">${d.desc}</div>
+        <div class="design-footer">
+          <div class="design-price">KES ${d.price.toLocaleString()}</div>
+          <button class="btn-select" id="btn-${d.id}" onclick="selectDesign(${d.id})">
+            ${cart.find(x => x.id === d.id) ? '✓ Selected' : 'Add to Cart'}
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/** Renders wedding combo cards */
+function renderWeddingCombos(grid) {
+  const weddings = DESIGNS.filter(d => d.mainCategory === 'wedding-combo');
+  if (!weddings.length) {
+    grid.innerHTML = `
+      <div class="gallery-empty">
+        <div class="gallery-empty-icon">💍</div>
+        <p>Wedding collection coming soon!<br>
+        Add your bridal combo images to the DESIGNS array with<br>
+        <code>mainCategory: 'wedding-combo'</code></p>
+      </div>`;
+    return;
+  }
+  grid.innerHTML = weddings.map(d => `
+    <div class="wedding-card animate-up">
+      <div class="wedding-img-area">
+        <img src="${d.image}" alt="${d.name}"
+          onerror="this.style.display='none'; this.parentElement.style.justifyContent='center'">
+        <div class="wedding-badge">💍 Bridal</div>
+      </div>
+      <div class="wedding-card-body">
+        <div class="wedding-card-title">${d.name}</div>
+        <div class="wedding-card-desc">${d.desc}</div>
+        <div class="design-footer">
+          <div class="wedding-price">KES ${d.price.toLocaleString()}</div>
+          <button class="btn-select" id="btn-${d.id}" onclick="selectDesign(${d.id})">
+            ${cart.find(x => x.id === d.id) ? '✓ Selected' : 'Add to Cart'}
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/** Renders video cards for hand or foot designs */
+function renderVideos(type, grid) {
+  // If no sub-type selected yet, show both categories as intro
+  if (!type || type === null) {
+    grid.innerHTML = `
+      <div class="gallery-empty">
+        <div class="gallery-empty-icon">🎬</div>
+        <p>Choose <strong>Hand Design Videos</strong> or <strong>Foot Design Videos</strong> above.</p>
+      </div>`;
+    return;
+  }
+
+  const vids = VIDEOS[type] || [];
+  grid.innerHTML = vids.map(v => `
+    <div class="video-card animate-up">
+      <div class="video-placeholder" onclick="playVideo('${v.id}', '${v.src}')">
+        <!-- Replace the src attribute below with your own video file path or URL -->
+        ${v.src
+          ? `<video id="vid-${v.id}" src="${v.src}" loop muted playsinline></video>`
+          : ''}
+        <div class="video-play-btn">▶</div>
+        <div class="video-overlay-label">${type === 'hand-design' ? '🤲 Hand Design' : '🦶 Foot Design'}</div>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-title">${v.title}</div>
+        <div class="video-card-desc">${v.desc}</div>
+        <!-- 📌 To add your video: set src='/your-video.mp4' in the VIDEOS object above -->
+        <div class="video-replace-note">📌 Replace src in VIDEOS['${type}'] to add your video</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/** Handles play/pause toggle on video placeholders */
+function playVideo(id, src) {
+  if (!src) {
+    showToast('🎬 Add your video path to the VIDEOS object to play!');
+    return;
+  }
+  const vid = document.getElementById('vid-' + id);
+  if (!vid) return;
+  if (vid.paused) { vid.play(); } else { vid.pause(); }
+}
+
+// ══════════════════════════════════════════════
+//  LEGACY filterDesigns (kept for backward compat)
+// ══════════════════════════════════════════════
+function filterDesigns(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const filtered = cat === 'all' ? DESIGNS : DESIGNS.filter(d => d.category === cat);
+  renderDesignCards(filtered, document.getElementById('galleryGrid'));
+}
+
+// ══════════════════════════════════════════════
+//  GALLERY — renderGallery (legacy wrapper)
+// ══════════════════════════════════════════════
+function renderGallery(designs) {
+  renderDesignCards(designs, document.getElementById('galleryGrid'));
+}
+
+function selectDesign(id) {
+  const d = DESIGNS.find(x => x.id === id);
+  const inCart = cart.findIndex(x => x.id === id);
+  const btn = document.getElementById('btn-' + id);
+  if (inCart >= 0) {
+    cart.splice(inCart, 1);
+    btn.textContent = 'Add to Cart';
+    btn.classList.remove('selected');
+    showToast('Removed from cart');
+  } else {
+    cart.push(d);
+    btn.textContent = '✓ Selected';
+    btn.classList.add('selected');
+    showToast(`${d.name} added to cart! 💅`);
+  }
+  updateCartUI();
+}
+
+// ══════════════════════════════════════════════
+//  CART
+// ══════════════════════════════════════════════
+function updateCartUI() {
+  const count = cart.length;
+  const cc = document.getElementById('cartCount');
+  cc.style.display = count > 0 ? 'flex' : 'none';
+  cc.textContent = count;
+
+  const body = document.getElementById('cartBody');
+  const footer = document.getElementById('cartFooter');
+
+  if (count === 0) {
+    body.innerHTML = `<div class="cart-empty"><div class="cart-empty-icon">💅</div><p>No designs selected yet.<br>Browse our gallery!</p></div>`;
+    footer.style.display = 'none';
+    return;
+  }
+
+  body.innerHTML = cart.map(d => `
+    <div class="cart-item">
+      <div class="cart-item-visual" style="background:${d.grad}"><img src="${d.image}" style="width:100%; height:100%; object-fit:cover;"></div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${d.name}</div>
+        <div class="cart-item-price">KES ${d.price.toLocaleString()}</div>
+      </div>
+      <button class="cart-item-remove" onclick="selectDesign(${d.id})">✕</button>
+    </div>
+  `).join('');
+
+  const total = cart.reduce((s, d) => s + d.price, 0);
+  document.getElementById('cartTotal').textContent = `KES ${total.toLocaleString()}`;
+  footer.style.display = 'block';
+}
+
+function toggleCart() {
+  document.getElementById('cartPanel').classList.toggle('open');
+}
+
+function checkoutWhatsApp() {
+  if (cart.length === 0) return;
+  const list = cart.map(d => `• ${d.name} (KES ${d.price.toLocaleString()})`).join('%0A');
+  const total = cart.reduce((s, d) => s + d.price, 0);
+  const msg = `Hello Luxe Nails Studio! 💅 I would like to order these nail designs:%0A%0A${list}%0A%0ATotal: KES ${total.toLocaleString()}%0A%0APlease confirm availability. Thank you!`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, '_blank');
+}
+
+// ══════════════════════════════════════════════
+//  BOOKING — Multi-technician slot system
+// ══════════════════════════════════════════════
+
+/**
+ * Returns the localStorage key for a specific technician+date combo.
+ * Format: "luxe_slots__Grace__2026-04-28"
+ * This keeps each technician's schedule completely independent.
+ */
+function techSlotKey(technician, date) {
+  return `luxe_slots__${technician}__${date}`;
+}
+
+/**
+ * Returns an array of booked slot IDs for a given technician on a given date.
+ * e.g. ["Slot 1", "Slot 4"]
+ * @param {string} technician
+ * @param {string} date  — YYYY-MM-DD
+ * @returns {string[]}
+ */
+function getBookedSlots(technician, date) {
+  return getStore(techSlotKey(technician, date), []);
+}
+
+/**
+ * Returns true if the specified slot is already booked for this technician+date.
+ * @param {string} technician
+ * @param {string} date
+ * @param {string} slotId  — e.g. "Slot 3"
+ * @returns {boolean}
+ */
+function isSlotBooked(technician, date, slotId) {
+  return getBookedSlots(technician, date).includes(slotId);
+}
+
+/**
+ * Returns all unbooked slots for a technician on a given date.
+ * @param {string} technician
+ * @param {string} date
+ * @returns {Object[]}  subset of SLOTS array
+ */
+function getAvailableSlots(technician, date) {
+  const booked = getBookedSlots(technician, date);
+  return SLOTS.filter(s => !booked.includes(s.id));
+}
+
+/** Build the technician picker cards (runs once on init) */
+function renderTechPicker() {
+  const grid = document.getElementById('techPickerGrid');
+  if (!grid) return;
+  grid.innerHTML = TECHNICIANS.map(name => `
+    <div class="tech-pill" id="tech-${name}" onclick="pickTechnician('${name}')">
+      <div class="tech-pill-avatar">${name.charAt(0)}</div>
+      <div class="tech-pill-name">${name}</div>
+    </div>
+  `).join('');
+}
+
+/** Handle technician card click */
+function pickTechnician(name) {
+  // Deselect all
+  document.querySelectorAll('.tech-pill').forEach(c => c.classList.remove('active'));
+  document.getElementById('tech-' + name).classList.add('active');
+
+  selectedTechnician = name;
+  selectedSlot = null;
+
+  // Clear any old availability message
+  const msg = document.getElementById('availMsg');
+  msg.className = 'availability-msg';
+
+  // Reload slots if date is already chosen
+  loadSlots();
+  updateBookingSummary();
+}
+
+/**
+ * Render the 7 slots for the currently selected technician + date.
+ * Called when either technician or date changes.
+ */
+function loadSlots() {
+  const date  = document.getElementById('bookDate').value;
+  const slotsEl = document.getElementById('timeSlots');
+
+  // Guard: both technician and date must be set
+  if (!selectedTechnician && !date) {
+    slotsEl.innerHTML = '<p style="color:var(--muted);font-size:0.8rem;grid-column:span 3;padding:0.5rem 0">✂️ Select a technician &amp; date to see availability</p>';
+    return;
+  }
+  if (!selectedTechnician) {
+    slotsEl.innerHTML = '<p style="color:var(--muted);font-size:0.8rem;grid-column:span 3;padding:0.5rem 0">👆 Please select a nail technician first</p>';
+    return;
+  }
+  if (!date) {
+    slotsEl.innerHTML = '<p style="color:var(--muted);font-size:0.8rem;grid-column:span 3;padding:0.5rem 0">📅 Now pick a date to see available slots</p>';
+    return;
+  }
+
+  // Reset selected slot when date/technician changes
+  selectedSlot = null;
+  document.getElementById('availMsg').className = 'availability-msg';
+
+  // Build slot cards — each slot shows its availability for THIS technician only
+  slotsEl.innerHTML = SLOTS.map(s => {
+    const booked = isSlotBooked(selectedTechnician, date, s.id);
+    return `
+      <div class="time-slot ${booked ? 'booked' : ''}"
+           onclick="pickSlot('${s.id}', '${s.time}', this, ${booked})"
+           title="${booked
+             ? selectedTechnician + ' is already booked for ' + s.id
+             : s.id + ' · ' + s.time + ' · Available with ' + selectedTechnician}">
+        <span class="slot-label">${s.id}</span>
+        <span class="slot-time">${s.time}</span>
+        <span class="slot-tech">${booked ? '🔒 Booked' : '— ' + selectedTechnician}</span>
+      </div>`;
+  }).join('');
+
+  updateBookingSummary();
+}
+
+/** Handle slot click — if booked show error; if free, select it */
+function pickSlot(slotId, slotTime, el, isBooked) {
+  if (isBooked) {
+    // Show the busy-provider message
+    const msg = document.getElementById('availMsg');
+    msg.className = 'availability-msg unavailable';
+    msg.textContent = `👉 This service provider is busy at this time. Please select another slot.`;
+    return;
+  }
+
+  // Deselect all, select clicked
+  document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedSlot = slotId;
+
+  const msg = document.getElementById('availMsg');
+  msg.className = 'availability-msg available';
+  msg.textContent = `✅ ${slotId} (${slotTime}) with ${selectedTechnician} is available — confirm below!`;
+
+  updateBookingSummary();
+}
+
+/** Live-update the booking summary panel as fields change */
+function updateBookingSummary() {
+  const name    = document.getElementById('bookName').value;
+  const phone   = document.getElementById('bookPhone').value;
+  const service = document.getElementById('bookService').value;
+  const date    = document.getElementById('bookDate').value;
+  const slotObj = selectedSlot ? SLOTS.find(s => s.id === selectedSlot) : null;
+
+  const el = document.getElementById('bookingSummaryItems');
+  el.innerHTML = `
+    <div class="summary-item"><span class="summary-label">Name</span>       <span class="summary-value">${name  || '—'}</span></div>
+    <div class="summary-item"><span class="summary-label">Phone</span>      <span class="summary-value">${phone || '—'}</span></div>
+    <div class="summary-item"><span class="summary-label">Service</span>    <span class="summary-value">${service || '—'}</span></div>
+    <div class="summary-item"><span class="summary-label">Technician</span> <span class="summary-value">${selectedTechnician || '—'}</span></div>
+    <div class="summary-item"><span class="summary-label">Date</span>       <span class="summary-value">${date ? new Date(date + 'T12:00:00').toDateString() : '—'}</span></div>
+    <div class="summary-item"><span class="summary-label">Slot</span>       <span class="summary-value">${slotObj ? slotObj.id + ' (' + slotObj.time + ')' : '—'}</span></div>
+  `;
+}
+
+// Live summary update on form input
+['bookName', 'bookPhone', 'bookService', 'bookDate'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', updateBookingSummary);
+});
+
+/** Validate, store, and send the booking via WhatsApp */
+function confirmBooking() {
+  const name    = document.getElementById('bookName').value.trim();
+  const phone   = document.getElementById('bookPhone').value.trim();
+  const service = document.getElementById('bookService').value;
+  const date    = document.getElementById('bookDate').value;
+
+  // ── Validation ──
+  if (!name)               { showToast('⚠️ Please enter your name');              return; }
+  if (!phone)              { showToast('⚠️ Please enter your phone number');       return; }
+  if (!service)            { showToast('⚠️ Please select a service');              return; }
+  if (!selectedTechnician) { showToast('⚠️ Please select a nail technician');      return; }
+  if (!date)               { showToast('⚠️ Please select a date');                 return; }
+  if (!selectedSlot)       { showToast('⚠️ Please select an available slot');      return; }
+
+  // Guard against a race condition (slot taken between render & submit)
+  if (isSlotBooked(selectedTechnician, date, selectedSlot)) {
+    showToast('⚠️ This slot was just booked. Please choose another.');
+    loadSlots();
+    return;
+  }
+
+  const slotObj = SLOTS.find(s => s.id === selectedSlot);
+
+  // ── Persist per-technician slot booking ──
+  const key     = techSlotKey(selectedTechnician, date);
+  const already = getStore(key, []);
+  already.push(selectedSlot);
+  setStore(key, already);
+
+  // ── Persist global booking record ──
+  const booking = {
+    id:         Date.now(),
+    name,
+    phone,
+    service,
+    technician: selectedTechnician,
+    date,
+    slot:       selectedSlot,
+    time:       new Date().toISOString(),
+  };
+  bookings.unshift(booking);
+
+  // ── Add/update customer ──
+  const existingIdx = customers.findIndex(c => c.phone === phone);
+  if (existingIdx >= 0) {
+    customers[existingIdx].bookings = (customers[existingIdx].bookings || 0) + 1;
+  } else {
+    customers.unshift({ name, phone, bookings: 1, joined: new Date().toLocaleDateString() });
+  }
+  saveState();
+  updateAdminUI();
+
+  // ── WhatsApp message ──
+  const dateStr = new Date(date + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  const waMsg =
+    `Hello, I'd like to book:%0A%0A` +
+    `👤 Name: ${encodeURIComponent(name)}%0A` +
+    `📞 Phone: ${encodeURIComponent(phone)}%0A` +
+    `💅 Service: ${encodeURIComponent(service)}%0A` +
+    `✂️ Technician: ${encodeURIComponent(selectedTechnician)}%0A` +
+    `📅 Date: ${encodeURIComponent(dateStr)}%0A` +
+    `🕐 Slot: ${encodeURIComponent(selectedSlot)} (${encodeURIComponent(slotObj ? slotObj.time : '')})%0A%0A` +
+    `Please confirm my booking. Thank you! 💅`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`, '_blank');
+
+  showToast('Booking sent! Check WhatsApp for confirmation 🎉');
+
+  // ── Reset form ──
+  document.getElementById('bookDate').value    = '';
+  document.getElementById('bookService').value = '';
+  document.getElementById('bookName').value    = '';
+  document.getElementById('bookPhone').value   = '';
+  document.getElementById('timeSlots').innerHTML =
+    '<p style="color:var(--muted);font-size:0.8rem;grid-column:span 3;padding:0.5rem 0">✂️ Select a technician &amp; date to see availability</p>';
+  document.getElementById('availMsg').className = 'availability-msg';
+
+  document.querySelectorAll('.tech-pill').forEach(c => c.classList.remove('active'));
+  selectedSlot       = null;
+  selectedTechnician = null;
+  updateBookingSummary();
+}
+
+// ══════════════════════════════════════════════
+//  AUTH
+// ══════════════════════════════════════════════
+function openModal() {
+  document.getElementById('authModal').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('authModal').classList.remove('open');
+}
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', (i===0&&tab==='login')||(i===1&&tab==='signup')));
+  document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+  document.getElementById('tab-signup').classList.toggle('active', tab === 'signup');
+}
+
+function doSignup() {
+  const name = document.getElementById('signupName').value.trim();
+  const phone = document.getElementById('signupPhone').value.trim();
+  const pass = document.getElementById('signupPass').value;
+  if (!name || !phone || !pass) { showToast('Please fill all fields'); return; }
+
+  const users = getStore('luxe_users', []);
+  if (users.find(u => u.phone === phone)) { showToast('Account with this number already exists'); return; }
+
+  users.push({ name, phone, pass, joined: new Date().toLocaleDateString() });
+  setStore('luxe_users', users);
+
+  if (!customers.find(c => c.phone === phone)) {
+    customers.unshift({ name, phone, bookings: 0, joined: new Date().toLocaleDateString() });
+    saveState();
+    updateAdminUI();
+  }
+
+  currentUser = { name, phone };
+  updateAuthUI();
+  closeModal();
+  showToast(`Welcome, ${name}! 💅`);
+}
+
+function doLogin() {
+  const phone = document.getElementById('loginPhone').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  const users = getStore('luxe_users', []);
+  const user = users.find(u => u.phone === phone && u.pass === pass);
+  if (!user) { showToast('Incorrect phone or password'); return; }
+  currentUser = user;
+  updateAuthUI();
+  closeModal();
+  showToast(`Welcome back, ${user.name}! 💅`);
+}
+
+function logout() {
+  currentUser = null;
+  updateAuthUI();
+  showToast('Logged out');
+}
+
+function updateAuthUI() {
+  const loginBtn = document.getElementById('loginBtn');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const authStatus = document.getElementById('authStatus');
+  const authName = document.getElementById('authName');
+  if (currentUser) {
+    loginBtn.style.display = 'none';
+    logoutBtn.style.display = 'block';
+    authStatus.style.display = 'flex';
+    authName.textContent = currentUser.name;
+    document.getElementById('bookName').value = currentUser.name;
+    document.getElementById('bookPhone').value = currentUser.phone;
+    updateBookingSummary();
+  } else {
+    loginBtn.style.display = 'block';
+    logoutBtn.style.display = 'none';
+    authStatus.style.display = 'none';
+  }
+}
+
+// ══════════════════════════════════════════════
+//  ADMIN
+// ══════════════════════════════════════════════
+function updateAdminUI() {
+  document.getElementById('statBookings').textContent = bookings.length;
+  document.getElementById('statCustomers').textContent = customers.length;
+
+  const bl = document.getElementById('adminBookingList');
+  if (bookings.length === 0) {
+    bl.innerHTML = '<p style="color:var(--muted);font-size:0.82rem">No bookings yet</p>';
+  } else {
+    bl.innerHTML = bookings.slice(0, 5).map(b => `
+      <div class="booking-entry">
+        <div>
+          <div class="be-name">${b.name}</div>
+          <div class="be-time">${b.service}${b.technician ? ' · ' + b.technician : ''} · ${new Date(b.date + 'T12:00:00').toLocaleDateString()} · ${b.slot}</div>
+        </div>
+        <span class="be-status">Confirmed</span>
+      </div>
+    `).join('');
+  }
+
+  const cl = document.getElementById('adminCustomerList');
+  if (customers.length === 0) {
+    cl.innerHTML = '<p style="color:var(--muted);font-size:0.82rem">No customers yet</p>';
+  } else {
+    cl.innerHTML = customers.slice(0, 5).map(c => `
+      <div class="customer-entry">
+        <div class="customer-avatar">${c.name.charAt(0).toUpperCase()}</div>
+        <div>
+          <div class="customer-name">${c.name}</div>
+          <div class="customer-meta">${c.phone} · ${c.bookings || 0} booking${c.bookings !== 1 ? 's' : ''}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+}
+
+function sendBroadcast() {
+  const msg = document.getElementById('notifyMsg').value.trim();
+  if (!msg) { showToast('Please type a message first'); return; }
+  if (customers.length === 0) { showToast('No customers to notify yet'); return; }
+  const encoded = encodeURIComponent(msg);
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank');
+  showToast(`Notification sent to ${customers.length} customer(s) 📲`);
+}
+
+// ══════════════════════════════════════════════
+//  UI HELPERS
+// ══════════════════════════════════════════════
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+document.getElementById('authModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// Set min date for booking
+const today = new Date();
+const yyyy = today.getFullYear();
+const mm = String(today.getMonth() + 1).padStart(2, '0');
+const dd = String(today.getDate()).padStart(2, '0');
+document.getElementById('bookDate').min = `${yyyy}-${mm}-${dd}`;
+
+// Animate on scroll
+function observeAnimations() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-up').forEach(el => obs.observe(el));
+}
+
+// ══════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════
+
+// Render the default main category (Nail Designs → All Designs)
+(function initGallery() {
+  // Render sub-cats for the default main category
+  const subs = SUB_CATS['nail-designs'];
+  const subCatRow = document.getElementById('subCatBtns');
+  subCatRow.innerHTML = subs.map((s, i) =>
+    `<button class="filter-btn${i === 0 ? ' active' : ''}"
+      onclick="selectSubCat('${s.key}', this, 'nail-designs')">${s.label}</button>`
+  ).join('');
+  subCatRow.classList.add('visible');
+
+  // Render all nail-designs by default
+  renderByMainAndSub('nail-designs', 'all-nd');
+})();
+
+updateCartUI();
+updateAdminUI();
+renderTechPicker();
+observeAnimations();
+
+// Sticky nav shrink
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.style.padding = window.scrollY > 50 ? '0.7rem 3rem' : '1rem 3rem';
+});
+
+// Close cart when clicking outside
+document.addEventListener('click', e => {
+  const panel = document.getElementById('cartPanel');
+  const cartBtn = document.querySelector('.cart-btn');
+  if (panel.classList.contains('open') && !panel.contains(e.target) && !cartBtn.contains(e.target)) {
+    panel.classList.remove('open');
+  }
+});
+</script>
+</body>
+</html>
